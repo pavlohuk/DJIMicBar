@@ -387,14 +387,14 @@ struct ReceiverSection: View {
             // Gain, Safety Track, the plug-free speaker, camera power and auto-off are left out:
             // they belong to the camera receiver, and the protocol gives no way to tell receiver models apart.
             HStack(spacing: 6) {
+                Chip(symbol: "waveform.path", text: "Limiter", on: state.clipLimiter,
+                     help: "Clip Limiter: " + (state.clipLimiter ? "on" : "off"), fill: true) {
+                    send(.clipLimiter(!state.clipLimiter))
+                }
                 Chip(symbol: state.stereo ? "hifispeaker.2" : "hifispeaker",
                      text: state.stereo ? "Stereo" : "Mono",
                      help: "Recording mode: " + (state.stereo ? "stereo" : "mono"), fill: true) {
                     send(.stereo(!state.stereo))
-                }
-                Chip(symbol: "waveform.path", text: "Limiter", on: state.clipLimiter,
-                     help: "Clip Limiter: " + (state.clipLimiter ? "on" : "off"), fill: true) {
-                    send(.clipLimiter(!state.clipLimiter))
                 }
                 // Third column stays empty so the chips line up with the transmitter's.
                 Color.clear.frame(maxWidth: .infinity).frame(height: 24)
