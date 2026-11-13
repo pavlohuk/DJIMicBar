@@ -331,9 +331,9 @@ struct TransmitterSection: View {
                 // Display only: on Mic Mini 2 (firmware 02.03.17.00) the receiver ignores the
                 // documented noise-cancel commands; the mode is switched on the hardware.
                 Chip(symbol: state.ncEnabled ? "ear.badge.waveform" : "ear",
-                     text: state.ncEnabled ? (state.ncStrong ? "Strong" : "Basic") : "Off",
+                     text: state.ncEnabled ? (state.ncStrong ? "High" : "Low") : "Off",
                      on: state.ncEnabled,
-                     help: "Noise Cancelling: " + (state.ncEnabled ? (state.ncStrong ? "Strong" : "Basic") : "off")
+                     help: "Noise Cancelling: " + (state.ncEnabled ? (state.ncStrong ? "High" : "Low") : "off")
                          + " — switched on the device",
                      fill: true)
                 MenuChip(symbol: "person.wave.2", text: tx.voiceTone.rawValue, help: "Voice Tone", fill: true) {
